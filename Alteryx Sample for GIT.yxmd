@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="318" y="162" />
+        <Position x="54" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -16,9 +16,6 @@
           <DefaultAnnotationText>AddressData.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="ADDR" size="29" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="V_String" />
@@ -35,7 +32,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="162" />
+        <Position x="342" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -61,7 +58,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="774" y="150" />
+        <Position x="510" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -84,7 +81,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="942" y="150" />
+        <Position x="678" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -100,6 +97,27 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+        <Position x="846" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields orderChanged="False" />
+          <Method>SmartTile</Method>
+          <SmartTile>
+            <Field>SCORE</Field>
+          </SmartTile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Smart Tile:
+SCORE</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -113,6 +131,10 @@
     <Connection>
       <Origin ToolID="3" Connection="False" />
       <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
