@@ -104,7 +104,7 @@ Batch Macro Module Example</Text>
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54.00002" y="172" width="404" height="128" />
+        <Position x="54.00002" y="166" width="404" height="134" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -163,31 +163,24 @@ Batch Macro Module Example</Text>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
         </Node>
-        <Node ToolID="46">
+        <Node ToolID="47">
           <GuiSettings>
-            <Position x="214" y="216" />
+            <Position x="246" y="210" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <Value name="ControlParams"><![CDATA[Input File Path=FullPath
-]]></Value>
+              <Value name="ControlParams" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <MetaInfo connection="Output10">
-              <RecordInfo>
-                <Field name="FileName" size="105" source="TextInput:" type="String" />
-                <Field description="RegEx: Parsed from Field_1" name="CodeName" size="100000" source="Summarize: GroupBy - CodeName" type="V_String" />
-                <Field name="ToolName" size="255" source="Formula: IF IsNull([ToolName]) THEN &#xA;&#xA;REGEX_Replace([CodeName], '(.+\\)(.+\.yxmc)', '$2' )&#xA;&#xA;ELSE [ToolName] ENDIF" type="V_WString" />
-                <Field name="Count" source="Summarize: Count - CodeName" type="Int64" />
-                <Field name="Group" size="20" source="TextInput:" type="V_String" />
-              </RecordInfo>
-            </MetaInfo>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
           </Properties>
-          <EngineSettings Macro="C:\Program Files\Alteryx\Samples\08 Macro_Samples\Supporting_Macros\BatchMacro_IndividualToolCount.yxmc" />
+          <EngineSettings Macro="\\nbnco.local\filestore\SYD-Users\saurabhgupta\Desktop\BatchMacro_IndividualToolCount.yxmc" />
         </Node>
       </ChildNodes>
     </Node>
@@ -323,10 +316,10 @@ Browse
   <Connections>
     <Connection>
       <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="46" Connection="Control" />
+      <Destination ToolID="47" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="46" Connection="Output10" />
+      <Origin ToolID="47" Connection="Output10" />
       <Destination ToolID="32" Connection="Input" />
     </Connection>
   </Connections>
